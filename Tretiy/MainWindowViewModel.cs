@@ -22,7 +22,7 @@ namespace Tretiy
                 commands.OpenTodayView();
             })); 
         }
-
+      
         private object _currentView;
 
         public object CurrentView

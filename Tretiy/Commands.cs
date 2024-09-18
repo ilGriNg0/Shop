@@ -8,10 +8,10 @@ namespace Tretiy
 {
     public class Commands : ICommands
     {
-        public void OpenHistoryView() => MainWindowViewModel.Instance.CurrentView = new HistoryViewModel();
+        public void OpenHistoryView() => MainWindowViewModel.Instance.CurrentView = new HistoryView();
        
 
-        public void OpenTodayView() => MainWindowViewModel.Instance.CurrentView = new TodayViewModel();
+        public void OpenTodayView() => MainWindowViewModel.Instance.CurrentView = new TodayView();
 
     }
 }
