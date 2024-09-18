@@ -18,11 +18,12 @@ namespace Tretiy
     /// <summary>
     /// Логика взаимодействия для TodayView.xaml
     /// </summary>
-    public partial class TodayView : Page
+    public partial class TodayView : UserControl
     {
         public TodayView()
         {
             InitializeComponent();
+            DataContext = new TodayViewModel();
         }
     }
 }

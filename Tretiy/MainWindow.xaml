@@ -16,12 +16,14 @@
                     Style="{StaticResource ButtonStyle}"
                     Width="75"
                     Height="20"
-                    Content="Сегодня"/>
+                    Content="Сегодня"
+                    Command="{Binding OpenTodayView}"/>
             <Button Margin="0 5 0 0"
                     Style="{StaticResource ButtonStyle}"
                     Width="75"
                     Height="20"
-                    Content="История"/>
+                    Content="История"
+                    Command="{Binding OpenHistoryView}"/>
             <Button Margin="0 5 0 0"
                     Style="{StaticResource ButtonStyle}"
                     Width="75"
@@ -32,7 +34,7 @@
                     Width="75"
                     Height="20"/>
         </StackPanel>
-        
-       
+
+        <ContentPresenter Grid.Column="1" Content="{Binding CurrentView}" ></ContentPresenter>
     </Grid>
 </Window>

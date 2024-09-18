@@ -18,11 +18,12 @@ namespace Tretiy
     /// <summary>
     /// Логика взаимодействия для HistoryView.xaml
     /// </summary>
-    public partial class HistoryView : Page
+    public partial class HistoryView : UserControl
     {
         public HistoryView()
         {
             InitializeComponent();
+            DataContext = new HistoryViewModel(); 
         }
     }
 }
