@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:Tretiy"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ButtonStyles.xaml"/>
+                <ResourceDictionary Source="BorderStyles.xaml"/>
+                <ResourceDictionary Source="ToggleButtonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

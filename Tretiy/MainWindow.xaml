@@ -8,8 +8,31 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+            <ColumnDefinition Width="0.15*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" VerticalAlignment="Stretch">
+            <Button Margin="0 5 0 0"
+                    Style="{StaticResource ButtonStyle}"
+                    Width="75"
+                    Height="20"
+                    Content="Сегодня"/>
+            <Button Margin="0 5 0 0"
+                    Style="{StaticResource ButtonStyle}"
+                    Width="75"
+                    Height="20"
+                    Content="История"/>
+            <Button Margin="0 5 0 0"
+                    Style="{StaticResource ButtonStyle}"
+                    Width="75"
+                    Height="20"
+                    Content="+"/>
+            <Button Margin="0 5 0 0"
+                    Style="{StaticResource ButtonStyle}"
+                    Width="75"
+                    Height="20"/>
+        </StackPanel>
+        
+       
     </Grid>
 </Window>
