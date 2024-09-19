@@ -35,6 +35,6 @@
                     Height="20"/>
         </StackPanel>
 
-        <ContentPresenter Grid.Column="1" Content="{Binding CurrentView}" ></ContentPresenter>
+        <ContentPresenter Margin="5" Grid.Column="1" Content="{Binding CurrentView}" ></ContentPresenter>
     </Grid>
 </Window>
