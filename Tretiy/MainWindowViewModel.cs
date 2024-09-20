@@ -41,6 +41,16 @@ namespace Tretiy
             get => _openHistoryView ?? (_openHistoryView ??= new RelayCommand(() => { commands.OpenHistoryView(); }));                  
             
         }
+
+        private RelayCommand _openCreateShopListView;
+
+        public RelayCommand OpenCreateShopListView
+        {
+            get => _openCreateShopListView ?? (_openCreateShopListView ??= new RelayCommand(() =>
+            {
+                commands.OpenCreateShopListView();
+            }));
+        }
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {

@@ -28,7 +28,8 @@
                     Style="{StaticResource ButtonStyle}"
                     Width="75"
                     Height="20"
-                    Content="+"/>
+                    Content="+"
+                    Command="{Binding OpenCreateShopListView}"/>
             <Button Margin="0 5 0 0"
                     Style="{StaticResource ButtonStyle}"
                     Width="75"

@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Tretiy
 {
-   public interface ICommands
+    public class CreateShopListViewModel
     {
-        public void OpenTodayView();
 
-        public void OpenHistoryView();
-        public void OpenCreateShopListView();
     }
 }

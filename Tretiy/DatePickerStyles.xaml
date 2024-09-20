@@ -1,0 +1,111 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="DatePickerStyles" TargetType="{x:Type DatePicker}">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="190"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+     
+        <Setter Property="CalendarStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type Calendar}">
+                    <Setter Property="CalendarDayButtonStyle">
+                        <Setter.Value>
+                            <Style TargetType="{x:Type CalendarDayButton}">
+                                <Setter Property="Background" Value="LightGray"/>
+                                <Setter Property="Width" Value="25"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="CalendarDayButton">
+                                            <Border x:Name="CalendarBordStyle" CornerRadius="5" Background="{TemplateBinding Background}">
+                                                <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="CalendarBordStyle" Property="Background" Value="DarkGray"></Setter>
+                                                </Trigger>
+                                               
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+               
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DatePicker}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox x:Name="PART_TextBox"
+                                     Text="{Binding SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" 
+                                     Margin="0" 
+                                 Style="{DynamicResource TextBoxStyles}"/>
+
+                        <Button x:Name="PART_Button"
+                                    Grid.Column="1"
+                                    Content="▼"
+                                Style="{StaticResource ButtonStyle}"
+                                    />
+
+                        <Popup x:Name="PART_Popup"
+                                   Placement="Bottom"
+                                   AllowsTransparency="True"
+                                   IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}">
+                            <Calendar x:Name="PART_Calendar" 
+                                          SelectedDate="{Binding SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}, Mode=TwoWay}" 
+                                      />
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TextBoxStyles" TargetType="{x:Type TextBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border x:Name="TextBoxBord" CornerRadius="10" Background="{TemplateBinding Background}">
+                       <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{TemplateBinding Text}"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="TextBoxBord" Property="Background" Value="LightGray"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CalendarStyle" TargetType="Button">
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="CalendarBordStyle" CornerRadius="10">
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseCaptureWithin" Value="True">
+                            <Setter TargetName="CalendarBordStyle" Property="Background" Value="red"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="CalendarBordStyle" Property="Background" Value="LightGreen"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

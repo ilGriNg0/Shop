@@ -8,35 +8,50 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="Transparent">
         <Border CornerRadius="30" Background="#CADAA7">
-            <StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                    <Border Style="{StaticResource  BordStyles}"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <DatePicker SelectedDateFormat="Long" Grid.Column="0" Style="{StaticResource DatePickerStyles}">
+                        
+                    </DatePicker>
+                    <DatePicker SelectedDateFormat="Long"></DatePicker>
+                </StackPanel>
+               
+                
+                <StackPanel Grid.Column="1">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
+                        <Border Style="{StaticResource  BordStyles}"
                Margin="0 5 0 0">
-                    </Border>
-                </StackPanel>
+                        </Border>
+                    </StackPanel>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                    <Border Style="{StaticResource  BordStyles}"
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
+                        <Border Style="{StaticResource  BordStyles}"
 Margin="0 5 0 0">
-                    </Border>
-                </StackPanel>
+                        </Border>
+                    </StackPanel>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                    <Border Style="{StaticResource  BordStyles}"
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
+                        <Border Style="{StaticResource  BordStyles}"
 Margin="0 5 0 0">
-                    </Border>
-                </StackPanel>
+                        </Border>
+                    </StackPanel>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                    <Border Style="{StaticResource  BordStyles}"
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
+                        <Border Style="{StaticResource  BordStyles}"
 Margin="0 5 0 0">
-                    </Border>
+                        </Border>
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
+            </Grid>
+           
 
         </Border>
     </Grid>

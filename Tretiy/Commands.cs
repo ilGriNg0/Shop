@@ -13,5 +13,7 @@ namespace Tretiy
 
         public void OpenTodayView() => MainWindowViewModel.Instance.CurrentView = new TodayView();
 
+        public void OpenCreateShopListView() => MainWindowViewModel.Instance.CurrentView = new CreateShopListView();
+
     }
 }
