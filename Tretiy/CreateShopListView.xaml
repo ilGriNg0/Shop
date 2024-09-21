@@ -9,37 +9,42 @@
     <Grid Background="Transparent">
         <Border CornerRadius="30" Background="#CADAA7">
             <StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                    <Border Style="{StaticResource  BordStyles}"
-               Margin="0 5 0 0">
-                        <Button Style="{StaticResource CloseBorder}" VerticalAlignment="Bottom" HorizontalAlignment="Right"></Button>
-                    </Border>
-                </StackPanel>
+                <ItemsControl ItemsSource="{Binding DataModels}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
+                                <Border Style="{StaticResource  BordStyles}"
+Margin="0 5 0 0">
+                                    <Grid ShowGridLines="True">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition Height="0.3*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Grid.Row="0">
+                                            <TextBox Style="{StaticResource TextBoxStl}" Text="{Binding NameItem}"></TextBox>
+                                            <TextBox Style="{StaticResource TextBoxStl}" Text="{Binding CountItem}"></TextBox>
+                                        </StackPanel>
+                                        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                            <Button Content="Add"
+                                                 Margin="0 0 5 0"
+                                                 Style="{StaticResource CloseBorder}"
+                                                 Command="{Binding AddNewItemInfoPanel}"></Button>
+                                            <Button Content="Save" Margin=" 0 0 5 0"
+                                                    Style="{StaticResource CloseBorder}"
+                                                    Command="{Binding SaveDataInfoPanel}"></Button>
+                                            <Button Style="{StaticResource CloseBorder}" ></Button>
+                                        </StackPanel>
+                                    </Grid>
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                    <Border Style="{StaticResource  BordStyles}"
-                    Margin="0 5 0 0">
-                        <Button Style="{StaticResource CloseBorder}" VerticalAlignment="Bottom" HorizontalAlignment="Right"></Button>
-                    </Border>
-                </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+               
 
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                    <Border Style="{StaticResource  BordStyles}"
-                    Margin="0 5 0 0">
-                        <Button Style="{StaticResource CloseBorder}" VerticalAlignment="Bottom" HorizontalAlignment="Right"></Button>
-                    </Border>
-                </StackPanel>
-
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                    <Border Style="{StaticResource  BordStyles}"
-                    Margin="0 5 0 0">
-                        <Button Style="{StaticResource CloseBorder}" VerticalAlignment="Bottom" HorizontalAlignment="Right"></Button>
-                    </Border>
-                </StackPanel>
+                
             </StackPanel>
 
         </Border>

@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="BorderStyles.xaml"/>
                 <ResourceDictionary Source="ToggleButtonStyles.xaml"/>
                 <ResourceDictionary Source="DatePickerStyles.xaml"/>
+                <ResourceDictionary Source="TextBoxStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
