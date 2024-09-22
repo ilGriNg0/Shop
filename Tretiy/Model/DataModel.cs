@@ -6,11 +6,13 @@ using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Controls;
+using Tretiy;
 namespace Tretiy.Model
 {
     public class DataModel : INotifyPropertyChanged
     {
+        private DateTime _lastUpdated;
         private string _nameItem;
         public string NameItem
         {
@@ -27,13 +29,27 @@ namespace Tretiy.Model
         {
             set
             {
-                if(_countItem > 0)
+                if(value > 0)
                 {
                     _countItem = value;
                     OnPropertyChanged("CountItem");
                 }
             }
             get => _countItem;
+        }
+
+        private int _priceItem;
+        public int PriceItem
+        {
+            set
+            {
+                if (value > 0)
+                {
+                    _priceItem = value;
+                    OnPropertyChanged("PriceItem");
+                }
+            }
+            get => _priceItem;
         }
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

@@ -27,24 +27,32 @@ namespace Tretiy
         }
         public CreateShopListViewModel()
         {
+            Model ??= new();
             DataModels = new();
             DataModels.Add(new());
         }
-        private RelayCommand _addNewItemInfoPanel;
+        private RelayCommand<object> _addNewItemInfoPanel;
 
-        public RelayCommand AddNewItemInfoPanel
+        public RelayCommand<object> AddNewItemInfoPanel
         {
-            get { return _addNewItemInfoPanel ?? (_addNewItemInfoPanel ??= new RelayCommand(() =>
+            get { return _addNewItemInfoPanel ?? (_addNewItemInfoPanel ??= new RelayCommand<object>((obj) =>
             
-            {           
-                DataModels.Add(new DataModel()); 
+            {
+                if (obj is DataModel data && Validation(data))
+                {                   
+                    DataModels.Add(new DataModel());
+                }
+              
+                  
+                
+               
             })); }
         }
 
         private RelayCommand _saveDataInfoPanel;
         public RelayCommand SaveDataInfoPanel
         {
-            get => _addNewItemInfoPanel ?? (_addNewItemInfoPanel = new RelayCommand(() =>
+            get => _saveDataInfoPanel ?? (_saveDataInfoPanel = new RelayCommand(() =>
             {
                 var item  = DataModels.IndexOf(Model);
                 foreach (var items in DataModels.Skip(item))
@@ -54,6 +62,25 @@ namespace Tretiy
             }));
         }
 
+        private RelayCommand<object> _deleteDataInfoPanel;
+
+        public RelayCommand<object> DeleteDataInfoPanel
+        {
+            get { return _deleteDataInfoPanel ?? (_deleteDataInfoPanel ??= new RelayCommand<object>((obj) =>
+            {
+                if(obj is DataModel data)
+                {
+                    var item = DataModels.IndexOf(data);
+                    foreach (var items in DataModels.Skip(item))
+                    {
+                        DataModels.Remove(items);
+                    }
+                }
+            })); }
+        }
+
+        private bool Validation(DataModel data) => string.IsNullOrWhiteSpace(data?.NameItem) ? false : true;
+        
        
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
