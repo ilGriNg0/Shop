@@ -12,7 +12,17 @@ namespace Tretiy.Model
 {
     public class DataModel : INotifyPropertyChanged
     {
-        private DateTime _lastUpdated;
+        private DateTime _dateTimeItem;
+
+        public DateTime DateTimeItem
+        {
+            set 
+            {
+                _dateTimeItem = value;
+                OnPropertyChanged("DateTimeItem");
+            }
+            get => _dateTimeItem; 
+        }
         private string _nameItem;
         public string NameItem
         {

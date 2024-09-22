@@ -54,11 +54,7 @@ namespace Tretiy
         {
             get => _saveDataInfoPanel ?? (_saveDataInfoPanel = new RelayCommand(() =>
             {
-                var item  = DataModels.IndexOf(Model);
-                foreach (var items in DataModels.Skip(item))
-                {
-                    items.NameItem = Model.NameItem;
-                }
+                
             }));
         }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,17 +9,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Tretiy
+namespace JsonCardCreater
 {
     /// <summary>
-    /// Логика взаимодействия для TodayView.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class TodayView : UserControl
+    public partial class MainWindow : Window
     {
-        public TodayView()
+        public MainWindow()
         {
             InitializeComponent();
-            DataContext = TodayViewModel.Instance;
         }
     }
 }
