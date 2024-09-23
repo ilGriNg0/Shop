@@ -13,6 +13,8 @@ namespace Tretiy
     public class CreateShopListViewModel : INotifyPropertyChanged
     {
         DataModel Model { get; set; }
+
+        JsonClass JsonClass { get; set; }
         private ObservableCollection<DataModel> _dataModels;
         public ObservableCollection<DataModel> DataModels
         {
@@ -28,6 +30,7 @@ namespace Tretiy
         public CreateShopListViewModel()
         {
             Model ??= new();
+            JsonClass ??= new();
             DataModels = new();
             DataModels.Add(new());
         }
@@ -49,12 +52,17 @@ namespace Tretiy
             })); }
         }
 
-        private RelayCommand _saveDataInfoPanel;
-        public RelayCommand SaveDataInfoPanel
+        private RelayCommand<object> _saveDataInfoPanel;
+        public RelayCommand<object> SaveDataInfoPanel
         {
-            get => _saveDataInfoPanel ?? (_saveDataInfoPanel = new RelayCommand(() =>
+            get => _saveDataInfoPanel ?? (_saveDataInfoPanel = new RelayCommand<object>((param) =>
             {
-                
+                if(param is CreateShopListViewModel createShopListViewModel)
+                {
+                    var item = createShopListViewModel.DataModels; 
+                    JsonClass.WriteJson(item);
+                }
+              
             }));
         }
 

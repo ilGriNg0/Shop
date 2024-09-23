@@ -13,7 +13,7 @@ namespace Tretiy
 {
     public class JsonClass : IJson
     {
-        private string path = "C:\\Users\\User\\source\\repos\\Tretiy\\JsonCardCrerateer\\bin\\Debug\\net8.0\\file.json";
+        private string path = "C:\\Users\\arabc\\Source\\Repos\\ilGriNg0\\Shop\\Tretiy\\Components\\file.json";
        
         public async void ReadJson()
         {
@@ -33,9 +33,14 @@ namespace Tretiy
             }
         }
 
-        public void WriteJson()
+        public async void WriteJson(ObservableCollection<DataModel> data)
         {
-            throw new NotImplementedException();
+            using (FileStream file = new FileStream("NewJsonItems.json", FileMode.OpenOrCreate))
+            {
+                string jsonData = JsonConvert.SerializeObject(data);
+                byte[] masStr = Encoding.Default.GetBytes(jsonData);
+                await file.WriteAsync(masStr);
+            }
         }
     }
 }

@@ -43,12 +43,18 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
-                
-                
-               
+                    <Button Style="{StaticResource SaveButtonStyle}"
+                            Content="Save"
+                            Command="{Binding DataContext.SaveDataInfoPanel, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                            CommandParameter="{Binding }">
+                        
+                    </Button>
 
-                
-            </StackPanel>
+
+
+
+
+                </StackPanel>
             </ScrollViewer>
         </Border>
     </Grid>
