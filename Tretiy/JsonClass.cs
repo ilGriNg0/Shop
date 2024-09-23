@@ -13,7 +13,7 @@ namespace Tretiy
 {
     public class JsonClass : IJson
     {
-        private string path = "C:\\Users\\arabc\\Source\\Repos\\ilGriNg0\\Shop\\Tretiy\\Components\\file.json";
+        private string path = "C:\\Users\\User\\source\\repos\\Tretiy\\Tretiy\\Components\\file.json";
        
         public async void ReadJson()
         {

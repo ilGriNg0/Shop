@@ -4,7 +4,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="bordBtn" CornerRadius="5" Background="Gray">
+                    <Border x:Name="bordBtn" CornerRadius="5" Background="Transparent">
                         <Border.Effect>
                             <DropShadowEffect BlurRadius="10" ShadowDepth="5" Direction="300" Opacity="0.2" Color="Black"></DropShadowEffect>
                         </Border.Effect>
