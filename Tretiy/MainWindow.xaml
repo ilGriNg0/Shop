@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Tretiy"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -13,27 +15,37 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" VerticalAlignment="Stretch">
             <Button Margin="0 5 0 0"
-                    Style="{StaticResource ButtonStyle}"
-                    Width="75"
-                    Height="20"
-                    Content="Сегодня"
-                    Command="{Binding OpenTodayView}"/>
+                    Style="{StaticResource ButtonStyle}" 
+                    Command="{Binding OpenTodayView}">
+                <StackPanel Orientation="Horizontal" >
+                    <iconPacks:Material Kind="CalendarToday" Width="15" Height="15"></iconPacks:Material>
+                    <TextBlock Margin="5 0 0 0" Text="Сегодня"></TextBlock>
+                </StackPanel>
+               
+            </Button>
             <Button Margin="0 5 0 0"
                     Style="{StaticResource ButtonStyle}"
-                    Width="75"
-                    Height="20"
-                    Content="История"
-                    Command="{Binding OpenHistoryView}"/>
+                    Command="{Binding OpenHistoryView}">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:FontAwesome Kind="ClockRotateLeftSolid" Width="15" Height="15"></iconPacks:FontAwesome>
+                    <TextBlock Margin="5 0 0 0" Text="История"/>
+                </StackPanel>
+               
+            </Button>
             <Button Margin="0 5 0 0"
                     Style="{StaticResource ButtonStyle}"
-                    Width="75"
-                    Height="20"
-                    Content="+"
-                    Command="{Binding OpenCreateShopListView}"/>
+                    Command="{Binding OpenCreateShopListView}">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:BootstrapIcons Kind="Plus" Width="15" Height="15"></iconPacks:BootstrapIcons>
+                    <TextBlock Margin="5 0 0 0" Text="Добавить"/>
+                </StackPanel>
+               
+            </Button>
             <Button Margin="0 5 0 0"
                     Style="{StaticResource ButtonStyle}"
-                    Width="75"
-                    Height="20"/>
+                    >
+                <iconPacks:BootstrapIcons Kind="_0SquareFill" Width="15" Height="15"></iconPacks:BootstrapIcons>
+            </Button>
         </StackPanel>
 
         <ContentPresenter Margin="5" Grid.Column="1" Content="{Binding CurrentView}" ></ContentPresenter>
