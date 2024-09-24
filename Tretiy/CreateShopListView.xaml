@@ -23,7 +23,7 @@
                                             </Grid.RowDefinitions>
                                             <StackPanel Grid.Row="0">
                                                 <TextBox Style="{StaticResource TextBoxStl}" Text="{Binding NameItem}"></TextBox>
-                                                <TextBox Style="{StaticResource TextBoxStl}" Text="{Binding CountItem}"></TextBox>
+                                                <TextBox Style="{StaticResource TextBoxStl}" Text="{Binding CountItem, Converter={StaticResource ConverterZeroValue}}"></TextBox>
                                             </StackPanel>
                                             <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
                                                 <Button Content="Add"

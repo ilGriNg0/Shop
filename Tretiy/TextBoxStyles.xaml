@@ -1,5 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Tretiy">
+    <local:StringConverter x:Key="ConverterStringNotNull"/>
+    <local:TextBoxZeroValueConverter x:Key="ConverterZeroValue"/>
     <Style x:Key="TextBoxStl" TargetType="{x:Type TextBox}" xmlns:sys="clr-namespace:System;assembly=mscorlib"> 
         <Setter Property="Template">
             <Setter.Value>
@@ -32,17 +35,31 @@
                         <Trigger Property="Text" Value="{x:Null}">
                             <Setter TargetName="WaterMark" Property="Visibility" Value="Hidden"/>
                         </Trigger>
-                        
+                        <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, Converter={StaticResource ConverterStringNotNull}}" Value="False">
+                            <Setter TargetName="WaterMark" Property="Visibility" Value="Visible"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, Converter={StaticResource ConverterStringNotNull}}" Value="True">
+                            <Setter TargetName="WaterMark" Property="Visibility" Value="Collapsed"></Setter>
+                        </DataTrigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter TargetName="BordTB" Property="Background" Value="LightGray"></Setter>
                         </Trigger>
+
+                        <!--<DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, Converter={StaticResource ConverterZeroValue}}" Value="False">
+                            <Setter TargetName="WaterMark" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}, Converter={StaticResource ConverterZeroValue}}" Value="TR">
+                            <Setter TargetName="WaterMark" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>-->
                         <Trigger Property="IsFocused" Value="True">
                             <Setter TargetName="BordTB" Property="Background" Value="LightGray"></Setter>
-                            <Setter TargetName="WaterMark" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+
+
 </ResourceDictionary>
