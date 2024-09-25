@@ -13,7 +13,7 @@ namespace Tretiy
 {
     public class TodayViewModel : INotifyPropertyChanged
     {
-        
+        private string path = "C:\\Users\\User\\source\\repos\\Tretiy\\Tretiy\\Components\\file.json";
         private ObservableCollection<DataModel> _todayData;
         public JsonClass JsonClass { get; set; }
        
@@ -31,7 +31,7 @@ namespace Tretiy
         {
             TodayData ??= new();
             JsonClass ??= new();
-            JsonClass.ReadJson();
+            JsonClass.ReadJson(path);
         }
         private static TodayViewModel _instance;
         public static TodayViewModel Instance
