@@ -7,12 +7,12 @@
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ButtonStyles.xaml"/>
-                <ResourceDictionary Source="BorderStyles.xaml"/>
-                <ResourceDictionary Source="ToggleButtonStyles.xaml"/>
-                <ResourceDictionary Source="DatePickerStyles.xaml"/>
-                <ResourceDictionary Source="TextBoxStyles.xaml"/>
-                <ResourceDictionary Source="TextBlockStyles.xaml"/>
+                <ResourceDictionary Source="/Styles/ButtonStyles.xaml"/>
+                <ResourceDictionary Source="/Styles/BorderStyles.xaml"/>
+                <ResourceDictionary Source="/Styles/ToggleButtonStyles.xaml"/>
+                <ResourceDictionary Source="/Styles/DatePickerStyles.xaml"/>
+                <ResourceDictionary Source="/Styles/TextBoxStyles.xaml"/>
+                <ResourceDictionary Source="/Styles/TextBlockStyles.xaml"/>
              
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

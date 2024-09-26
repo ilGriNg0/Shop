@@ -11,6 +11,6 @@ namespace Tretiy
     public interface IJson
     {
         public void WriteJson(ObservableCollection<DataModel> data);
-        public void ReadJson();
+        public Task  ReadJson(string path);
     }
 }

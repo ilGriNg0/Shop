@@ -23,7 +23,7 @@ namespace Tretiy
         public HistoryView()
         {
             InitializeComponent();
-            DataContext = new HistoryViewModel(); 
+            DataContext = HistoryViewModel.Instance; 
         }
     }
 }

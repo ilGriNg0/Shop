@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:Tretiy"
+             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="Transparent">
@@ -14,41 +16,36 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
-                    <DatePicker SelectedDateFormat="Long" Grid.Column="0" Style="{StaticResource DatePickerStyles}">
-                        
+                    <DatePicker x:Name="Date2" SelectedDate="{Binding Date, Mode=TwoWay}" SelectedDateFormat="Long" Grid.Column="0" Style="{StaticResource DatePickerStyles}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectedDateChanged">
+                                <i:InvokeCommandAction Command="{Binding DateSelectedCommand}"
+                                                       CommandParameter="{Binding Date}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </DatePicker>
                     <DatePicker SelectedDateFormat="Long"></DatePicker>
                 </StackPanel>
-               
-                
+
+
                 <StackPanel Grid.Column="1">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                        <Border Style="{StaticResource  BordStyles}"
-               Margin="0 5 0 0">
-                        </Border>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                        <Border Style="{StaticResource  BordStyles}"
-Margin="0 5 0 0">
-                        </Border>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                        <Border Style="{StaticResource  BordStyles}"
-Margin="0 5 0 0">
-                        </Border>
-                    </StackPanel>
-
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
-                        <Border Style="{StaticResource  BordStyles}"
-Margin="0 5 0 0">
-                        </Border>
-                    </StackPanel>
+                    <ItemsControl ItemsSource="{Binding PastDataElements}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <ToggleButton Margin="0 0 5 0" Style="{StaticResource TBStyles}"></ToggleButton>
+                                    <Border Style="{StaticResource  BordStyles}"
+                                        Margin="0 5 0 0">
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="{Binding NameItem, StringFormat='{}Название: {0}'}" Style="{StaticResource TextBlocksStyles}"></TextBlock>
+                                            <TextBlock Text="{Binding CountItem, StringFormat='{}Количество: {0}'}" Style="{StaticResource TextBlocksStyles}"></TextBlock>
+                                            <TextBlock Text="{Binding PriceItem, StringFormat='{}Цена: {0}'}" Style="{StaticResource TextBlocksStyles}"></TextBlock>
+                                        </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </StackPanel>
             </Grid>
            

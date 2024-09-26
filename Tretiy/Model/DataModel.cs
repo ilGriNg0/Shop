@@ -67,6 +67,6 @@ namespace Tretiy.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        public DataModel() { }
+        public DataModel() { DateTimeItem = DateTime.Now.Date; }
     }
 }
