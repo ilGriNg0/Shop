@@ -24,7 +24,9 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </DatePicker>
-                    <DatePicker SelectedDateFormat="Long"></DatePicker>
+                    <Border Style="{StaticResource StatisticBordStyles}">
+                        <TextBlock Text="{Binding SpentMoney,StringFormat='{}Потраченно : {0}'}"></TextBlock>
+                    </Border>
                 </StackPanel>
 
 

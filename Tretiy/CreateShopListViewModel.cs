@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Tretiy.Model;
 using CommunityToolkit.Mvvm.Input;
+using System.Windows.Navigation;
+using System.DirectoryServices;
 namespace Tretiy
 {
     public class CreateShopListViewModel : INotifyPropertyChanged
@@ -60,6 +62,7 @@ namespace Tretiy
                 if(param is CreateShopListViewModel createShopListViewModel)
                 {
                     var item = createShopListViewModel.DataModels; 
+                    
                     JsonClass.WriteJson(item);
                 }
               
@@ -84,7 +87,7 @@ namespace Tretiy
         }
 
         private bool Validation(DataModel data) => string.IsNullOrWhiteSpace(data?.NameItem) ? false : true;
-        
+       
        
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

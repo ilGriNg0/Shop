@@ -12,4 +12,16 @@
         </Setter>
 
     </Style>
+    <Style TargetType="Border" x:Key="StatisticBordStyles">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Margin" Value="0 5 0 0"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="10" Direction="10" Color="Black" Opacity="0.2"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

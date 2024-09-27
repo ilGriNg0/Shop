@@ -16,8 +16,21 @@ namespace Tretiy
 {
     public class HistoryViewModel : INotifyPropertyChanged
     {
-        private string path = "C:/Users/User/source/repos/ilGriNg0/Shop/Tretiy/bin/Debug/net8.0-windows/NewJsonItems.json";
-        JsonClass? _jsClass {  get; set; } 
+        private string path = "C:/Users/arabc/source/repos/ilGriNg0/Shop/Tretiy/bin/Debug/net8.0-windows/NewJsonItems.json";
+        JsonClass? _jsClass {  get; set; }
+
+        private int _spentMoney;
+
+        public int SpentMoney
+        {
+            set
+            {
+                _spentMoney = value;
+                OnPropertyChanged("SpentMoney");
+            }
+            get => _spentMoney;
+        }
+
         IJson json { get; set; }
         private DateTime _date;
         public DateTime Date
@@ -52,9 +65,10 @@ namespace Tretiy
                         await json.ReadJson(path);
                         data = CultureDate(data);
                         var itemList = PastDataElements.ToList();
+                        SpentMoney = 0;
                             foreach (var item in itemList)
                             {
-
+                                SpentMoney += item.PriceItem;
                                 if (data != item.DateTimeItem)
                                 {
                                     PastDataElements.Remove(item);
