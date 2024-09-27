@@ -10,6 +10,8 @@ using Tretiy.Model;
 using CommunityToolkit.Mvvm.Input;
 using System.Windows.Navigation;
 using System.DirectoryServices;
+using System.Reflection.Metadata.Ecma335;
+using System.Windows.Input;
 namespace Tretiy
 {
     public class CreateShopListViewModel : INotifyPropertyChanged
@@ -17,6 +19,19 @@ namespace Tretiy
         DataModel Model { get; set; }
 
         JsonClass JsonClass { get; set; }
+
+        private bool _isFocusedTextBox;
+
+        public bool IsFocusedTextBox
+        {
+            set
+            {
+                _isFocusedTextBox = value;
+                OnPropertyChanged("IsFocusedTextBox");
+            }
+            get => _isFocusedTextBox;
+        }
+
         private ObservableCollection<DataModel> _dataModels;
         public ObservableCollection<DataModel> DataModels
         {
@@ -35,6 +50,25 @@ namespace Tretiy
             JsonClass ??= new();
             DataModels = new();
             DataModels.Add(new());
+        }
+         
+        private RelayCommand<string> _focusTextBox;
+        public RelayCommand<string> FocusTextBox
+        {
+            get
+            {
+                return _focusTextBox ?? (_focusTextBox ??= new RelayCommand<string>(obj =>
+                {
+                    if (obj is string create && !string.IsNullOrWhiteSpace(create))
+                    {
+                        IsFocusedTextBox = true;
+                    }
+                    else
+                    {
+                        IsFocusedTextBox= false;
+                    }
+                }));
+            }
         }
         private RelayCommand<object> _addNewItemInfoPanel;
 

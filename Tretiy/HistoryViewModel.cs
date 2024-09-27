@@ -16,7 +16,7 @@ namespace Tretiy
 {
     public class HistoryViewModel : INotifyPropertyChanged
     {
-        private string path = "C:/Users/arabc/source/repos/ilGriNg0/Shop/Tretiy/bin/Debug/net8.0-windows/NewJsonItems.json";
+        private string path = "C:/Users/User/source/repos/ilGriNg0/Shop/Tretiy/bin/Debug/net8.0-windows/NewJsonItems.json";
         JsonClass? _jsClass {  get; set; }
 
         private int _spentMoney;
@@ -63,17 +63,13 @@ namespace Tretiy
                     {
                       
                         await json.ReadJson(path);
-                        data = CultureDate(data);
-                        var itemList = PastDataElements.ToList();
+                        data = CultureDate(data);      
+                        var itemList = new ObservableCollection<DataModel>(PastDataElements.Where(p => p.DateTimeItem == data));
+                        PastDataElements = itemList;
                         SpentMoney = 0;
-                            foreach (var item in itemList)
-                            {
-                                SpentMoney += item.PriceItem;
-                                if (data != item.DateTimeItem)
-                                {
-                                    PastDataElements.Remove(item);
-                                }
-                            }                 
+                        var item2 = PastDataElements.Where(p => p.DateTimeItem == data).Sum(p => p.PriceItem);
+                        SpentMoney = item2;
+                                    
                     }
                 }));
             }

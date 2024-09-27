@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:local="clr-namespace:Tretiy"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -22,8 +23,27 @@
                                                 <RowDefinition Height="0.3*"></RowDefinition>
                                             </Grid.RowDefinitions>
                                             <StackPanel Grid.Row="0">
-                                                <TextBox Style="{StaticResource TextBoxStl}" Text="{Binding NameItem}"></TextBox>
-                                                <TextBox Style="{StaticResource TextBoxStl}" Text="{Binding CountItem, Converter={StaticResource ConverterZeroValue}}"></TextBox>
+                                                <TextBox Name="TB"
+                                                         Style="{StaticResource TextBoxStl}"
+                                                         Text="{Binding NameItem}"
+                                                         >
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="TextChanged">
+                                                            <i:InvokeCommandAction Command="{Binding DataContext.FocusTextBox, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                                                  CommandParameter="{Binding Text, ElementName=TB}"></i:InvokeCommandAction>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </TextBox>
+                                                <TextBox Name="TB2"
+                                                         Style="{StaticResource TextBoxStl}"
+                                                         Text="{Binding CountItem, Converter={StaticResource ConverterZeroValue}}">
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="TextChanged">
+                                                            <i:InvokeCommandAction Command="{Binding DataContext.FocusTextBox, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                                                  CommandParameter="{Binding Text, ElementName=TB2}" ></i:InvokeCommandAction>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
+                                                </TextBox>
                                             </StackPanel>
                                             <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
                                                 <Button Content="Add"

@@ -23,7 +23,7 @@ namespace Tretiy
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            if (string.IsNullOrEmpty(value?.ToString()))
+             if (string.IsNullOrEmpty(value?.ToString()))
             {
                 return 0;
             }
