@@ -93,7 +93,7 @@ namespace Tretiy
         {
             get => _saveDataInfoPanel ?? (_saveDataInfoPanel = new RelayCommand<object>((param) =>
             {
-                if(param is CreateShopListViewModel createShopListViewModel)
+                if(param is CreateShopListViewModel createShopListViewModel && createShopListViewModel.DataModels.All(p => p.NameItem != string.Empty && p.CountItem != 0))
                 {
                     var item = createShopListViewModel.DataModels; 
                     
