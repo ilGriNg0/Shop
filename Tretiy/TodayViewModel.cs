@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Tretiy.Model;
-
+using CommunityToolkit.Mvvm.Input;
 namespace Tretiy
 {
     public class TodayViewModel : INotifyPropertyChanged
@@ -26,6 +26,24 @@ namespace Tretiy
                 OnPropertyChanged("TodayData");
             }
             get => _todayData;
+        }
+
+        private RelayCommand<object> _toggleButtonPressed;
+        
+        public RelayCommand<object> ToggleButtonPressed
+        {
+            get
+            {
+                return _toggleButtonPressed ?? (_toggleButtonPressed ??= new RelayCommand<object>((obj) => 
+                {
+                    if (obj is DataModel today)
+                    {
+                        
+                        CreateShopListViewModel.Instance.DataModels.Add(today);
+
+                    }
+                }));
+            }
         }
         public TodayViewModel()
         {

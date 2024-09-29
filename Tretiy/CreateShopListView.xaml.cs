@@ -23,7 +23,7 @@ namespace Tretiy
         public CreateShopListView()
         {
             InitializeComponent();
-            DataContext = new CreateShopListViewModel();
+            DataContext = CreateShopListViewModel.Instance;
         }
     }
 }

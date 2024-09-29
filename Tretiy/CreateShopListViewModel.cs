@@ -51,7 +51,18 @@ namespace Tretiy
             DataModels = new();
             DataModels.Add(new());
         }
-         
+        private static CreateShopListViewModel _instance;
+        public static CreateShopListViewModel Instance
+        {
+            get
+            {
+                if( _instance == null)
+                {
+                    _instance = new CreateShopListViewModel();
+                }
+                return _instance;
+            }
+        }
         private RelayCommand<string> _focusTextBox;
         public RelayCommand<string> FocusTextBox
         {
@@ -114,7 +125,12 @@ namespace Tretiy
                     var item = DataModels.IndexOf(data);
                     foreach (var items in DataModels.Skip(item))
                     {
-                        DataModels.Remove(items);
+                        if(DataModels.Count > 1)
+                        {
+                            DataModels.Remove(items);
+                            break;
+                        }
+                       
                     }
                 }
             })); }

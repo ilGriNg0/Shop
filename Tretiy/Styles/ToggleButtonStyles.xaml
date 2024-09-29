@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style x:Key="TBStyles" TargetType="{x:Type ToggleButton}">
         <Style.Setters>
-            <Setter Property="Width" Value="20"/>
-            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="15"/>
+            <Setter Property="Height" Value="15"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
@@ -14,9 +14,6 @@
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="bord" Property="Background" Value="LightGray"></Setter>
-                            </Trigger>
-                            <Trigger Property="IsPressed"  Value="True">
-                                <Setter TargetName="bord" Property="Background" Value="LightBlue"></Setter>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
