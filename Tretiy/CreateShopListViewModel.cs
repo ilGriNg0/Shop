@@ -92,10 +92,7 @@ namespace Tretiy
                 {                   
                     DataModels.Add(new DataModel());
                 }
-              
-                  
-                
-               
+ 
             })); }
         }
 
