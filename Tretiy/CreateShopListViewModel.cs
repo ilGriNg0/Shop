@@ -32,6 +32,17 @@ namespace Tretiy
             get => _isFocusedTextBox;
         }
 
+        private bool _isChecked;
+        public bool IsChecked
+        {
+            set
+            {
+                _isChecked = value;
+                OnPropertyChanged("IsChecked");
+            }
+            get => _isChecked;
+        }
+
         private ObservableCollection<DataModel> _dataModels;
         public ObservableCollection<DataModel> DataModels
         {
@@ -109,6 +120,18 @@ namespace Tretiy
                 }
               
             }));
+        }
+
+        private RelayCommand<object> _plus;
+        public RelayCommand<object> Plus
+        {
+            get
+            {
+               return _plus ?? (_plus ??= new RelayCommand<object>((obj) =>
+                {
+                    IsChecked = true;
+                }));
+            }
         }
 
         private RelayCommand<object> _deleteDataInfoPanel;
