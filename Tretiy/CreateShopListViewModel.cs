@@ -122,12 +122,12 @@ namespace Tretiy
             }));
         }
 
-        private RelayCommand<object> _plus;
-        public RelayCommand<object> Plus
+        private RelayCommand _confirmation;
+        public RelayCommand ConfirmationCommand
         {
             get
             {
-               return _plus ?? (_plus ??= new RelayCommand<object>((obj) =>
+                return _confirmation ?? (_confirmation = new RelayCommand(() => 
                 {
                     IsChecked = true;
                 }));

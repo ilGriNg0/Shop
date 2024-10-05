@@ -16,7 +16,7 @@ namespace Tretiy
 {
     public class HistoryViewModel : INotifyPropertyChanged
     {
-        private string path = "C:/Users/arabc/source/repos/ilGriNg0/Shop/Tretiy/bin/Debug/net8.0-windows/NewJsonItems.json";
+        private string path = "C:/Users/User/source/repos/ilGriNg0/Shop/Tretiy/bin/Debug/net8.0-windows/NewJsonItems.json";
         JsonClass? _jsClass {  get; set; }
 
         private int _spentMoney;

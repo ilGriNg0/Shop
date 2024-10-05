@@ -47,7 +47,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="SaveButtonStyle" TargetType="Button">
+    <Style x:Key="ConfirmationButtonStyle" TargetType="Button">
         <Setter Property="Width" Value="40"/>
         <Setter Property="Height" Value="20"/>
         <Setter Property="Template">
@@ -74,10 +74,48 @@
                         <DataTrigger Binding="{Binding DataContext.IsFocusedTextBox, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Value="False">
                             <Setter Property="Visibility" Value="Collapsed"></Setter>
                         </DataTrigger>
+                        <DataTrigger Binding="{Binding DataContext.IsChecked, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed"></Setter>
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         
-    </Style> 
+    </Style>
+
+    <Style x:Key="SaveButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="40"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="BordSaveBtn" CornerRadius="5" Background="LightGray">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="10" ShadowDepth="5" Direction="2" Opacity="0.1"></DropShadowEffect>
+                        </Border.Effect>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="BordSaveBtn" Property="Background" Value="DarkGray"></Setter>
+                            <Setter Property="Effect">
+                                <Setter.Value>
+                                    <DropShadowEffect BlurRadius="20" ShadowDepth="10" Direction="3" Opacity="0.2"></DropShadowEffect>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding DataContext.IsChecked, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Value="True">
+                            <Setter Property="Visibility" Value="Visible"></Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding DataContext.IsChecked, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed"></Setter>
+                        </DataTrigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
 </ResourceDictionary>
