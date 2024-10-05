@@ -24,6 +24,7 @@
                                             </Grid.RowDefinitions>
                                             <StackPanel Grid.Row="0">
                                                 <TextBox Name="TB"
+                                                         local:WaterMarkServices.WaterMark="Введите название"
                                                          Style="{StaticResource TextBoxStl}"
                                                          Text="{Binding NameItem}"
                                                          >
@@ -35,6 +36,7 @@
                                                     </i:Interaction.Triggers>
                                                 </TextBox>
                                                 <TextBox Name="TB2"
+                                                         local:WaterMarkServices.WaterMark="Введите количество"
                                                          Style="{StaticResource TextBoxStl}"
                                                          Text="{Binding CountItem, Converter={StaticResource ConverterZeroValue}}">
                                                     <i:Interaction.Triggers>
@@ -45,6 +47,7 @@
                                                     </i:Interaction.Triggers>
                                                 </TextBox>
                                                 <TextBox Name="TB3"
+                                                     local:WaterMarkServices.WaterMark="Введите цену"    
                                                      Style="{StaticResource TextBoxStl}"
                                                      Text="{Binding PriceItem, Converter={StaticResource ConverterZeroValue}}"
                                                      IsEnabled="{Binding DataContext.IsChecked, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"

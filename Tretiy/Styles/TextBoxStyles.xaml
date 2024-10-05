@@ -17,7 +17,7 @@
                         </Border>
                         <!--WaterMark TextBlock-->
                         <TextBlock x:Name="WaterMark"
-                           Text="Введите продукты"
+                           Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:WaterMarkServices.WaterMark)}"
                          
                            IsHitTestVisible="False"
                            VerticalAlignment="Center"
