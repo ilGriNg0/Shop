@@ -61,7 +61,6 @@ namespace Tretiy
                     
                     if(obj is DateTime data)
                     {
-                      
                         await json.ReadJson(path);
                         data = CultureDate(data);      
                         var itemList = new ObservableCollection<DataModel>(PastDataElements.Where(p => p.DateTimeItem == data));
