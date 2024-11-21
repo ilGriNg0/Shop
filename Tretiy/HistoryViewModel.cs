@@ -67,8 +67,7 @@ namespace Tretiy
                         PastDataElements = itemList;
                         SpentMoney = 0;
                         var item2 = PastDataElements.Where(p => p.DateTimeItem == data).Sum(p => p.PriceItem);
-                        SpentMoney = item2;
-                                    
+                        SpentMoney = item2;                                   
                     }
                 }));
             }
